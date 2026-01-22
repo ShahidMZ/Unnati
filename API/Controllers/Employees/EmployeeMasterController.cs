@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers.Employees
 {
-    [Authorize]
+    // [Authorize]
     public class EmployeeMasterController(DeviceContext context) : BaseController
     {
         [HttpGet("GetEmployees")]

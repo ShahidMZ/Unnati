@@ -1,0 +1,45 @@
+<div class="card bg-base-100 w-1/2 mx-auto p-10 mt-10 shadow-xl">
+    <h1 class="text-3xl font-bold underline mb-10">{{ title() }}</h1>
+    <ul class="list">
+        @for (item of employees(); track item.employeeID) {
+            <li class="list-row items-center">
+                <img src="/img/user.png" alt="user avatar" class="size-12 rounded-box">
+                <div>
+                    {{ item.displayName }} ({{ item.employeeID }})
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<!-- <p *ngFor="let item of list">{{ item.employeeID }}: {{ item.displayName }}</p> -->
+
+<!-- @for (item of employees; track $index; let i = $index) {
+    <p>{{ item.employeeID }}: {{ item.displayName }}</p>
+} -->
+
+<br/>
+<button class="btn">Button</button>
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-accent">Accent</button>
+<button class="btn btn-info">Info</button>
+<button class="btn btn-success">Success</button>
+<button class="btn btn-warning">Warning</button>
+<button class="btn btn-error">Error</button>
+<button class="btn btn-outline">Outline</button>
+<button class="btn btn-dash">Dash</button>
+<button class="btn btn-soft">Soft</button>
+<button class="btn btn-ghost">Ghost</button>
+<button class="btn btn-link">Link</button>
+<button class="btn btn-active">Active</button>
+<button class="btn btn-disabled">Disabled</button>
+<button class="btn btn-primary btn-xs">xs</button>
+<button class="btn btn-primary btn-sm">sm</button>
+<button class="btn btn-primary btn-md">md</button>
+<button class="btn btn-primary btn-lg">lg</button>
+<button class="btn btn-primary btn-xl">xl</button>
+<button class="btn btn-primary btn-wide">Wide</button>
+<button class="btn btn-primary btn-block">Block</button>
+<button class="btn btn-primary btn-square">Square</button>
+<button class="btn btn-primary btn-circle">Circle</button>

@@ -1,45 +1,28 @@
-<div class="card bg-base-100 w-1/2 mx-auto p-10 mt-10 shadow-xl">
-    <h1 class="text-3xl font-bold underline mb-10">{{ title() }}</h1>
-    <ul class="list">
-        @for (item of employees(); track item.employeeID) {
-            <li class="list-row items-center">
-                <img src="/img/user.png" alt="user avatar" class="size-12 rounded-box">
-                <div>
-                    {{ item.displayName }} ({{ item.employeeID }})
-                </div>
-            </li>
-        }
-    </ul>
+<div class="min-h-screen flex flex-col">
+    <app-nav></app-nav>
+
+    <div id="main" class="flex-1 overflow-auto mt-16 grid grid-cols-12 gap-3 ">
+        <div class="2xl:col-span-8 xl:col-span-7 lg:col-span-7 md:col-span-6 sm:col-span-4 col-span-12 flex justify-center items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                class="2xl:size-50 xl:size-50 md:size-50 sm:size-30 size-20 my-auto">
+                <path fill-rule="evenodd" d="M11.622 1.602a.75.75 0 0 1 .756 0l2.25 1.313a.75.75 0 0 1-.756 1.295L12 3.118 10.128 4.21a.75.75 0 1 1-.756-1.295l2.25-1.313ZM5.898 5.81a.75.75 0 0 1-.27 1.025l-1.14.665 1.14.665a.75.75 0 1 1-.756 1.295L3.75 8.806v.944a.75.75 0 0 1-1.5 0V7.5a.75.75 0 0 1 .372-.648l2.25-1.312a.75.75 0 0 1 1.026.27Zm12.204 0a.75.75 0 0 1 1.026-.27l2.25 1.312a.75.75 0 0 1 .372.648v2.25a.75.75 0 0 1-1.5 0v-.944l-1.122.654a.75.75 0 1 1-.756-1.295l1.14-.665-1.14-.665a.75.75 0 0 1-.27-1.025Zm-9 5.25a.75.75 0 0 1 1.026-.27L12 11.882l1.872-1.092a.75.75 0 1 1 .756 1.295l-1.878 1.096V15a.75.75 0 0 1-1.5 0v-1.82l-1.878-1.095a.75.75 0 0 1-.27-1.025ZM3 13.5a.75.75 0 0 1 .75.75v1.82l1.878 1.095a.75.75 0 1 1-.756 1.295l-2.25-1.312a.75.75 0 0 1-.372-.648v-2.25A.75.75 0 0 1 3 13.5Zm18 0a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-.372.648l-2.25 1.312a.75.75 0 1 1-.756-1.295l1.878-1.096V14.25a.75.75 0 0 1 .75-.75Zm-9 5.25a.75.75 0 0 1 .75.75v.944l1.122-.654a.75.75 0 1 1 .756 1.295l-2.25 1.313a.75.75 0 0 1-.756 0l-2.25-1.313a.75.75 0 1 1 .756-1.295l1.122.654V19.5a.75.75 0 0 1 .75-.75Z"
+                    clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="2xl:col-span-4 xl:col-span-5 lg:col-span-5 md:col-span-6 sm:col-span-8 col-span-12 
+            flex justify-center items-center">
+            <div class="flex flex-col gap-3 basis-2/3 2xl:pl-10 xl:pl-10 lg:pl-10 md:pl-10 sm:pl-10 pl-0
+                2xl:border-l-2 xl:border-l-2 lg:border-l-2 md:border-l-2 sm:border-l-2 border-l-gray-700">
+                <h1 class="font-bold text-xl">Login</h1>
+                <form class="flex flex-col gap-5 my-5">
+                    <input type="text" class="input w-full" required placeholder="Email">
+                    <input type="password" class="input w-full" required placeholder="Password">
+                    <button class="btn btn-primary">Login</button>
+                </form>
+                <a class="text-blue-500 underline text-sm" href="">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
 </div>
-
-<!-- <p *ngFor="let item of list">{{ item.employeeID }}: {{ item.displayName }}</p> -->
-
-<!-- @for (item of employees; track $index; let i = $index) {
-    <p>{{ item.employeeID }}: {{ item.displayName }}</p>
-} -->
-
-<br/>
-<button class="btn">Button</button>
-<button class="btn btn-primary">Primary</button>
-<button class="btn btn-secondary">Secondary</button>
-<button class="btn btn-accent">Accent</button>
-<button class="btn btn-info">Info</button>
-<button class="btn btn-success">Success</button>
-<button class="btn btn-warning">Warning</button>
-<button class="btn btn-error">Error</button>
-<button class="btn btn-outline">Outline</button>
-<button class="btn btn-dash">Dash</button>
-<button class="btn btn-soft">Soft</button>
-<button class="btn btn-ghost">Ghost</button>
-<button class="btn btn-link">Link</button>
-<button class="btn btn-active">Active</button>
-<button class="btn btn-disabled">Disabled</button>
-<button class="btn btn-primary btn-xs">xs</button>
-<button class="btn btn-primary btn-sm">sm</button>
-<button class="btn btn-primary btn-md">md</button>
-<button class="btn btn-primary btn-lg">lg</button>
-<button class="btn btn-primary btn-xl">xl</button>
-<button class="btn btn-primary btn-wide">Wide</button>
-<button class="btn btn-primary btn-block">Block</button>
-<button class="btn btn-primary btn-square">Square</button>
-<button class="btn btn-primary btn-circle">Circle</button>

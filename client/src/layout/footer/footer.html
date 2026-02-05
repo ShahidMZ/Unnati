@@ -1,5 +1,9 @@
 <footer class="footer flex flex-row justify-center min-h-15 bg-neutral text-neutral-content">
     <div class="inline my-auto text-sm">
-        <p>{{ copyright() }}<a class="font-bold" href="https://shahidmzubair.bitbucket.io/">{{ author()}}</a></p>
+        <p>{{ copyright() }}
+            <a class="font-bold hover:text-slate-500 hover:duration-200" href="{{ authorUrl() }}">
+                {{ author() }}
+            </a>
+        </p>
     </div>
 </footer>

@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { AccountService } from '../../core/services/account-service';
 
 @Component({
   selector: 'app-nav',
@@ -7,5 +8,14 @@ import { Component, signal } from '@angular/core';
   styleUrl: './nav.css',
 })
 export class Nav {
+    private accountService = inject(AccountService);
     protected readonly title = signal('Dashboard');
+
+    userLoggedIn(): boolean {
+        return this.accountService.currentUser() !== null;
+    }
+
+    logout() {
+        this.accountService.logout();
+    }
 }

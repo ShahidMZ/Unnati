@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../models/account/user';
 import { tap } from 'rxjs';
-import { Login } from '../../features/login/login';
+import { Login } from '../../features/account/login/login';
 
 @Injectable({
     providedIn: 'root',
@@ -10,7 +10,9 @@ import { Login } from '../../features/login/login';
 export class AccountService {
     private http = inject(HttpClient);
     currentUser = signal<User | null>(null);
-    forgotPasswordMode = signal(false);
+    theme = signal('light');
+    displayModes = ["login", "signup", "forgotPassword"];
+    displayMode = signal(this.displayModes[0]);
 
     baseUrl: string = 'https://localhost:5001/api/';
 

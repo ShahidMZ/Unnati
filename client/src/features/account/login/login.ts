@@ -1,13 +1,14 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { AccountService } from '../../core/services/account-service';
-import { User } from '../../core/models/account/user';
+import { AccountService } from '../../../core/services/account-service';
+import { User } from '../../../core/models/account/user';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ForgotPassword } from "../account/forgot-password/forgot-password";
+import { ForgotPassword } from "../forgot-password/forgot-password";
+import { Signup } from "../signup/signup";
 
 @Component({
     selector: 'app-login',
-    imports: [CommonModule, FormsModule, ForgotPassword],
+    imports: [CommonModule, FormsModule, ForgotPassword, Signup],
     templateUrl: './login.html',
     styleUrl: './login.css',
 })
@@ -45,7 +46,11 @@ export class Login implements OnInit {
         });
     }
 
+    showSignup() {
+        this.accountService.displayMode.set(this.accountService.displayModes[1]);
+    }
+
     showForgotPassword() {
-        this.accountService.forgotPasswordMode.set(true);
+        this.accountService.displayMode.set(this.accountService.displayModes[2]);
     }
 }

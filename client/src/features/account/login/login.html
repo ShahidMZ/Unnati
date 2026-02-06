@@ -1,5 +1,5 @@
 <div class="grid grid-cols-12 gap-3 h-full">
-    @if (!accountService.forgotPasswordMode())
+    @if (accountService.displayMode() == accountService.displayModes[0])
     {
         <div class="2xl:col-span-8 xl:col-span-7 lg:col-span-7 md:col-span-6 sm:col-span-4 
                 col-span-12 flex justify-center items-center">
@@ -16,17 +16,26 @@
                     2xl:border-l-2 xl:border-l-2 lg:border-l-2 md:border-l-2 sm:border-l-2 border-l-gray-700">
                 <h1 class="font-bold text-xl">Login</h1>
                 <form #loginForm="ngForm" class="flex flex-col gap-5 mt-5" (ngSubmit)="login(creds)">
-                    <input [(ngModel)]="creds.employeeID" name="employeeID" type="text" class="input w-full" required
-                        placeholder="Employee ID">
-                    <input [(ngModel)]="creds.password" name="password" type="password" class="input w-full" required
-                        placeholder="Password">
+                    <input [(ngModel)]="creds.employeeID" name="employeeID" type="text" 
+                        class="input w-full" required placeholder="Employee ID">
+                    <input [(ngModel)]="creds.password" name="password" type="password" 
+                        class="input w-full" required placeholder="Password">
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
                 <a class="hover:text-slate-500 hover:duration-200 underline text-sm cursor-pointer" 
                     (click)="showForgotPassword()">Forgot Password?</a>
+                <div class="inline mt-3">
+                    <span class="cursor-default">New to Dashboard? </span>
+                    <a class="hover:text-slate-500 hover:duration-200 underline cursor-pointer"
+                        (click)="showSignup()">Create an account</a>
+                </div>
             </div>
         </div>
-    } @else {
+    } @else if (accountService.displayMode() == accountService.displayModes[1]) {
+        <div class="col-span-12 flex justify-center">
+            <app-signup class="w-full my-auto"></app-signup>
+        </div>
+    } @else if (accountService.displayMode() == accountService.displayModes[2]){
         <div class="col-span-12 flex justify-center">
             <app-forgot-password class="w-full my-auto"></app-forgot-password>
         </div>

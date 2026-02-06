@@ -8,7 +8,7 @@ import { AccountService } from '../../core/services/account-service';
   styleUrl: './nav.css',
 })
 export class Nav {
-    private accountService = inject(AccountService);
+    protected accountService = inject(AccountService);
     protected readonly title = signal('Dashboard');
 
     userLoggedIn(): boolean {

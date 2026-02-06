@@ -1,19 +1,19 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { AccountService } from '../../../core/services/account-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-forgot-password',
+  selector: 'app-signup',
   imports: [FormsModule],
-  templateUrl: './forgot-password.html',
-  styleUrl: './forgot-password.css',
+  templateUrl: './signup.html',
+  styleUrl: './signup.css',
 })
-export class ForgotPassword {
+export class Signup {
     private accountService = inject(AccountService);
     protected data: any = {};
 
-    reset() {
-        console.log('Password reset requested: ', this.data);
+    signup() {
+
     }
 
     cancel() {

@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ForgotPassword } from "../forgot-password/forgot-password";
 import { Signup } from "../signup/signup";
+import { Footer } from "../../../layout/footer/footer";
 
 @Component({
     selector: 'app-login',
-    imports: [CommonModule, FormsModule, ForgotPassword, Signup],
+    imports: [CommonModule, FormsModule, ForgotPassword, Signup, Footer],
     templateUrl: './login.html',
     styleUrl: './login.css',
 })

@@ -11,6 +11,8 @@ export class AccountService {
     private http = inject(HttpClient);
     currentUser = signal<User | null>(null);
     theme = signal('light');
+    version = signal('v0.1.0');
+
     displayModes = ["login", "signup", "forgotPassword"];
     displayMode = signal(this.displayModes[0]);
 

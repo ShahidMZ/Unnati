@@ -7,7 +7,7 @@ import { Login } from '../features/account/login/login';
 
 @Component({
     selector: 'app-root',
-    imports: [CommonModule, Nav, Footer, FormsModule, Login],
+    imports: [CommonModule, Nav, FormsModule, Login],
     templateUrl: './app.html',
     styleUrl: './app.css'
 })

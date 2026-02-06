@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Nav } from "../layout/nav/nav";
-import { Footer } from "../layout/footer/footer";
 import { FormsModule } from '@angular/forms';
-import { Login } from '../features/account/login/login';
+import { RouterOutlet } from '@angular/router';
+import { Login } from "../features/account/login/login";
 
 @Component({
     selector: 'app-root',
-    imports: [CommonModule, Nav, FormsModule, Login],
+    imports: [CommonModule, Nav, FormsModule, RouterOutlet],
     templateUrl: './app.html',
     styleUrl: './app.css'
 })

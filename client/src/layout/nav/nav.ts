@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { AccountService } from '../../core/services/account-service';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-nav',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './nav.html',
   styleUrl: './nav.css',
 })

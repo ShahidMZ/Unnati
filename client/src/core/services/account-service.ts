@@ -3,12 +3,16 @@ import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../models/account/user';
 import { tap } from 'rxjs';
 import { Login } from '../../features/account/login/login';
+import { Router } from '@angular/router';
+import { ToastService } from './toast-service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AccountService {
     private http = inject(HttpClient);
+    protected router = inject(Router);
+    private toast = inject(ToastService);
     currentUser = signal<User | null>(null);
     theme = signal('light');
     version = signal('v0.1.0');
@@ -34,6 +38,8 @@ export class AccountService {
     logout() {
         this.currentUser.set(null);
         localStorage.removeItem('currentUser');
+        this.router.navigate(['/login']);
+        this.toast.success('Logout successful!');
 
         console.log('Logout successful!');
     }

@@ -7,6 +7,7 @@ import { ForgotPassword } from "../forgot-password/forgot-password";
 import { Signup } from "../signup/signup";
 import { Footer } from "../../../layout/footer/footer";
 import { Router } from '@angular/router';
+import { ToastService } from '../../../core/services/toast-service';
 
 @Component({
     selector: 'app-login',
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
 export class Login implements OnInit {
     protected accountService = inject(AccountService);
     protected router = inject(Router);
+    private toast = inject(ToastService);
     protected creds: any = {};
 
     constructor() { }
@@ -40,8 +42,13 @@ export class Login implements OnInit {
         this.accountService.login(creds).subscribe({
             next: (response: User) => {
                 console.log('Login successful!', response);
+                this.router.navigateByUrl('/home');
+                this.toast.success('Logged in successfully!');
             },
-            error: error => console.log('Login failed!', error),
+            error: error => {
+                console.log('Login failed!', error.error);
+                this.toast.error(error.error);
+            },
             complete: () => {
                 console.log('Login request completed!');
                 this.creds = {};

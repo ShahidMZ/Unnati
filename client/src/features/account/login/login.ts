@@ -24,18 +24,6 @@ export class Login implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
-        this.setCurrentUser();
-    }
-
-    setCurrentUser() {
-        const userString = localStorage.getItem('currentUser');
-
-        if (!userString) {
-            return;
-        }
-        
-        const user: User = JSON.parse(userString);
-        this.accountService.currentUser.set(user);
     }
 
     login(creds: Login) {

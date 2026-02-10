@@ -1,7 +1,7 @@
 <header class="navbar fixed top-0 z-50 bg-neutral">
     <div class="flex flex-row px-5 gap-6 w-full justify-between">
         <div class="text-white pt-1 cursor-pointer">
-            <a class="flex flex-row gap-3" routerLink="/">
+            <a class="flex flex-row gap-3" [routerLink]="accountService.currentUser() ? '/home' : '/'">
                 <!-- <img class="max-w-14 border-r-white border-r-2 pr-4" src="/img/new_logo.jpg" alt=""> -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-10">
                     <path fill-rule="evenodd"

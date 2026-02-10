@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { AccountService } from '../../core/services/account-service';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +10,7 @@ import { RouterLink } from "@angular/router";
 })
 export class Nav {
     protected accountService = inject(AccountService);
+    protected router = inject(Router);
     protected readonly title = signal('Dashboard');
 
     userLoggedIn(): boolean {

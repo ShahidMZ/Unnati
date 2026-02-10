@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AccountService } from '../../../core/services/account-service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class Signup {
     private accountService = inject(AccountService);
+    private router = inject(Router);
     protected data: any = {};
 
     signup() {
@@ -17,7 +19,8 @@ export class Signup {
     }
 
     cancel() {
-        this.accountService.displayMode.set(this.accountService.displayModes[0]);
+        // this.accountService.displayMode.set(this.accountService.displayModes[0]);
+        this.router.navigate(['/login']);
         console.log('Password reset cancelled');
     }
 }

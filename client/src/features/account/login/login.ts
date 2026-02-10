@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ForgotPassword } from "../forgot-password/forgot-password";
 import { Signup } from "../signup/signup";
 import { Footer } from "../../../layout/footer/footer";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -15,6 +16,7 @@ import { Footer } from "../../../layout/footer/footer";
 })
 export class Login implements OnInit {
     protected accountService = inject(AccountService);
+    protected router = inject(Router);
     protected creds: any = {};
 
     constructor() { }
@@ -48,10 +50,12 @@ export class Login implements OnInit {
     }
 
     showSignup() {
-        this.accountService.displayMode.set(this.accountService.displayModes[1]);
+        // this.accountService.displayMode.set(this.accountService.displayModes[1]);
+        this.router.navigate(['/signup']);
     }
 
     showForgotPassword() {
-        this.accountService.displayMode.set(this.accountService.displayModes[2]);
+        // this.accountService.displayMode.set(this.accountService.displayModes[2]);
+        this.router.navigate(['/forgot-password']);
     }
 }

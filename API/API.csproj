@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Account\" />
+    <Folder Include="Controllers\Errors\" />
     <Folder Include="Data\" />
     <Folder Include="Data\DTOs\" />
     <Folder Include="Data\DTOs\Account\" />
@@ -24,6 +25,8 @@
     <Folder Include="Data\Entities\Users\" />
     <Folder Include="Data\Extensions\" />
     <Folder Include="Data\Extensions\Account\" />
+    <Folder Include="Errors\" />
+    <Folder Include="Middleware\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Implementations\" />
     <Folder Include="Services\Implementations\Account\" />

@@ -30,7 +30,7 @@ export class Login implements OnInit {
         this.accountService.login(creds).subscribe({
             next: (response: User) => {
                 console.log('Login successful!', response);
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/home/dashboard');
                 this.toast.success('Logged in successfully!');
             },
             error: error => {

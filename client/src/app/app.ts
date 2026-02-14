@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Nav } from "../layout/nav/nav";
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { Login } from "../features/account/login/login";
 
 @Component({
     selector: 'app-root',

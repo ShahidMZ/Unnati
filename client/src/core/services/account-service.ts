@@ -14,7 +14,7 @@ export class AccountService {
     protected router = inject(Router);
     private toast = inject(ToastService);
     currentUser = signal<User | null>(null);
-    theme = signal('light');
+    lightTheme = signal("bumblebee");
     version = signal('v0.1.0');
 
     displayModes = ["login", "signup", "forgotPassword"];

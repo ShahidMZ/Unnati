@@ -7,11 +7,13 @@ import { authGuard } from '../core/guards/auth-guard';
 import { TestErrors } from '../features/errors/test-errors/test-errors';
 import { NotFound } from '../shared/errors/not-found/not-found';
 import { ServerError } from '../shared/errors/server-error/server-error';
+import { Dashboard } from '../features/dashboard/dashboard';
+import { Profile } from '../features/profile/profile';
 
 export const routes: Routes = [
     { path: '', component: Login },
 
-    { path: 'login', component: Login },
+    // { path: 'login', component: Login },
     { path: 'forgot-password', component: ForgotPassword },
     { path: 'signup', component: Signup },
 
@@ -20,7 +22,15 @@ export const routes: Routes = [
         runGuardsAndResolvers: 'always',
         canActivate: [authGuard],
         children: [
-            { path: 'home', component: Home },
+            { 
+                path: 'home', 
+                component: Home,
+                children: [
+                    { path: 'dashboard', component: Dashboard },
+                    { path: 'profile', component: Profile },
+                    { path: '', redirectTo: 'home', pathMatch: 'full' }
+                ]
+            },
         ]
     },
 

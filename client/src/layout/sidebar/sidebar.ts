@@ -14,7 +14,7 @@ import { Footer } from "../footer/footer";
 export class Sidebar {
     protected layout = inject(LayoutService);
     protected accountService = inject(AccountService);
-    widthClass = computed(() => this.layout.collapsed() ? 'w-16' : 'w-64');
+    widthClass = computed(() => this.layout.collapsed() ? 'w-15' : 'w-64');
     tooltipClasses = computed(() => this.layout.collapsed() ? 'flex tooltip tooltip-right w-full z-50' : 'flex w-full');
 
     menuItems = [

@@ -16,7 +16,8 @@
 }
 
 .isActive {
-    /* background-color: var(--color-primary); */
-    color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: white;
     font-weight: bold;
+    border-radius: 5px;
 }

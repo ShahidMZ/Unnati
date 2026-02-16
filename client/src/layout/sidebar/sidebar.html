@@ -1,7 +1,8 @@
-<aside class="bg-base-200 h-screen transition-all duration-300 scrollable-div py-16" [class]="widthClass()">
-    <a class="card h-30 bg-base-300 m-3 p-3 cursor-pointer opacity-70 hover:opacity-100 hover:transition-all hover:duration-300" [class]="layout.collapsed() ? 'hidden' : null">
+<aside class="bg-base-200 h-full transition-all duration-300 scrollable-div py-16" [class]="widthClass()">
+    <a id="userCard" class="card h-30 bg-base-300 m-3 p-3 cursor-pointer opacity-70 hover:opacity-100 
+        hover:transition-all hover:duration-300" [class]="layout.collapsed() ? 'hidden' : null">
         <div tabindex="0" role="button" class="flex items-center mt-1">
-            <img class="w-8 h-8 rounded-full" src="/img/user.png" alt="User Profile">
+            <img class="w-8 h-8 rounded-full" src="/img/pic1.jpg" alt="User Profile">
         </div>
         <h3 class="text-sm mt-2">Welcome, <span class="font-bold">{{ accountService.currentUser()?.displayName }}</span></h3>
         <p class="text-xs font-bold mt-1">{{ accountService.currentUser()?.email }}</p>
@@ -10,7 +11,7 @@
         <li [class]="layout.collapsed() ? 'pt-1' : 'hidden'" class=" opacity-70 hover:opacity-100 hover:transition-all hover:duration-300">
             <div [class]="tooltipClasses()" data-tip="profile">
                 <a routerLink="/home" routerLinkActive="active" class="flex items-center gap-3 w-full">
-                    <img class="w-6 h-6 rounded-full" src="/img/user.png" alt="User Profile">
+                    <img class="w-6 h-6 rounded-full" src="/img/pic1.jpg" alt="User Profile">
                 </a>
             </div>
         </li>
@@ -31,4 +32,6 @@
         </li>
         }
     </ul>
+    <div class="divider my-3 px-4"></div>
+    <app-footer></app-footer>
 </aside>

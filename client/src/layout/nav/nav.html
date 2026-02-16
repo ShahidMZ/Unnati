@@ -32,8 +32,10 @@
         @if (userLoggedIn())
         {
         <div class="flex gap-3">
+            <i class="fa-solid fa-bell fa-xl mt-5"></i>
             <label class="toggle text-base-content mt-2.5">
-                <input type="checkbox" [value]="accountService.lightTheme()" class="theme-controller" />
+                <!-- <input type="checkbox" [value]="accountService.lightTheme()" class="theme-controller" /> -->
+                <input type="checkbox" [checked]="accountService.theme() !== 'dark'" (change)="accountService.toggleTheme()" class="theme-controller" />
                 <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none"
                         stroke="currentColor">
@@ -57,7 +59,7 @@
             </label>
             <div class="dropdown dropdown-end pt-1.5">
                 <div tabindex="0" role="button" class="flex items-center cursor-pointer">
-                    <img class="w-8 h-8 rounded-full" src="/img/user.png" alt="User Profile">
+                    <img class="w-8 h-8 rounded-full" src="/img/pic1.jpg" alt="User Profile">
                 </div>
                 <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                     <li><a>Edit Profile</a></li>

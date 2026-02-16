@@ -1,9 +1,19 @@
-<footer class="footer flex flex-row justify-center min-h-15 bg-neutral text-neutral-content">
-    <div class="inline my-auto text-sm">
-        <p>{{ copyright() }}
+@if (!layout.collapsed()) {
+<footer class="footer">
+    <div class="inline text-sm">
+        <p class="text-center">{{ copyright() }}
             <a class="font-bold hover:text-slate-500 hover:duration-200" href="{{ authorUrl() }}">
                 {{ author() }}
             </a>
         </p>
     </div>
 </footer>
+} @else {
+<footer class="footer flex justify-center cursor-default">
+    <div class="flex flex-col">
+        <p class="text-sm text-center mx-auto">©</p>
+        <p class="text-sm text-center mx-auto">{{ year }}</p>
+        <p class="text-sm text-center mx-auto font-bold hover:text-slate-500 hover:duration-200"><a href="{{ authorUrl() }}">SMZ</a></p>
+    </div>
+</footer>
+}

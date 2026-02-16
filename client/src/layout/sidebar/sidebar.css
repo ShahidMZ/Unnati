@@ -6,3 +6,8 @@
 .scrollable-div::-webkit-scrollbar {
     display: none; /* For Chrome, Safari, and Opera */
 }
+
+#userCard {
+    background-image: url("/img/bg5.png");
+    background-size: cover;
+}

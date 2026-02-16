@@ -13,7 +13,7 @@ import { Profile } from '../features/profile/profile';
 export const routes: Routes = [
     { path: '', component: Login },
 
-    // { path: 'login', component: Login },
+    { path: 'login', component: Login },
     { path: 'forgot-password', component: ForgotPassword },
     { path: 'signup', component: Signup },
 

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { effect, inject, Injectable, signal } from '@angular/core';
 import { User } from '../models/account/user';
 import { tap } from 'rxjs';
 import { Login } from '../../features/account/login/login';
@@ -13,14 +13,27 @@ export class AccountService {
     private http = inject(HttpClient);
     protected router = inject(Router);
     private toast = inject(ToastService);
-    currentUser = signal<User | null>(null);
-    lightTheme = signal("bumblebee");
+
+    private readonly defaultTheme = signal("dark");
+
+    baseUrl: string = 'https://localhost:5001/api/';
+    
     version = signal('v0.1.0');
+    currentUser = signal<User | null>(null);
+    theme = signal<string>(this.getStoredTheme());
+    lightTheme = signal("bumblebee");
+    darkTheme = signal("dark");
 
     displayModes = ["login", "signup", "forgotPassword"];
     displayMode = signal(this.displayModes[0]);
 
-    baseUrl: string = 'https://localhost:5001/api/';
+    constructor() {
+        effect(() => {
+            const currentTheme = this.theme();
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            localStorage.setItem("theme", currentTheme);
+        });
+    }
 
     login(creds: Login) {
         return this.http.post<User>(this.baseUrl + 'account/login', creds).pipe(
@@ -42,5 +55,19 @@ export class AccountService {
         this.toast.success('Logout successful!');
 
         console.log('Logout successful!');
+    }
+
+    private getStoredTheme(): string {
+        return localStorage.getItem('theme') || this.defaultTheme.toString();
+    }
+
+    toggleTheme() {
+        const newTheme = this.theme() === this.darkTheme() ? this.lightTheme() : this.darkTheme();
+
+        this.theme.set(newTheme);
+    }
+
+    setTheme(theme: string) {
+        this.theme.set(theme);
     }
 }

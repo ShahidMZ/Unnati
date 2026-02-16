@@ -16,7 +16,7 @@ export class AccountService {
 
     baseUrl: string = 'https://localhost:5001/api/';
     
-    version = signal('v0.1.0');
+    version = signal('v0.2.0');
     currentUser = signal<User | null>(null);
     theme = signal<string>(this.getStoredTheme());
     lightTheme = signal("corporate");

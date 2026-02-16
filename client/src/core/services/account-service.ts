@@ -14,15 +14,14 @@ export class AccountService {
     protected router = inject(Router);
     private toast = inject(ToastService);
 
-    private readonly defaultTheme = signal("dark");
-
     baseUrl: string = 'https://localhost:5001/api/';
     
     version = signal('v0.1.0');
     currentUser = signal<User | null>(null);
     theme = signal<string>(this.getStoredTheme());
-    lightTheme = signal("bumblebee");
+    lightTheme = signal("corporate");
     darkTheme = signal("dark");
+    defaultTheme = this.darkTheme();
 
     displayModes = ["login", "signup", "forgotPassword"];
     displayMode = signal(this.displayModes[0]);

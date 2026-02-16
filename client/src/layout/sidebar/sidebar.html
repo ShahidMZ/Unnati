@@ -1,6 +1,7 @@
 <aside class="bg-base-200 h-full transition-all duration-300 scrollable-div py-16" [class]="widthClass()">
     <a id="userCard" class="card h-30 bg-base-300 m-3 p-3 cursor-pointer opacity-70 hover:opacity-100 
-        hover:transition-all hover:duration-300" [class]="layout.collapsed() ? 'hidden' : null">
+        hover:transition-all hover:duration-300" [class]="layout.collapsed() ? 'hidden' : null"
+        routerLink="/home/profile" routerLinkActive="isActive" [routerLinkActiveOptions]="{ exact: false }">
         <div tabindex="0" role="button" class="flex items-center mt-1">
             <img class="w-8 h-8 rounded-full" src="/img/pic1.jpg" alt="User Profile">
         </div>
@@ -10,16 +11,19 @@
     <ul class="w-full menu p-2 text-base-content text-sm">
         <li [class]="layout.collapsed() ? 'pt-1' : 'hidden'" class=" opacity-70 hover:opacity-100 hover:transition-all hover:duration-300">
             <div [class]="tooltipClasses()" data-tip="profile">
-                <a routerLink="/home" routerLinkActive="active" class="flex items-center gap-3 w-full">
+                <a routerLink="/home/profile" routerLinkActive="isActive"[routerLinkActiveOptions]="{ exact: false }"
+                    class="flex items-center gap-3 w-full">
                     <img class="w-6 h-6 rounded-full" src="/img/pic1.jpg" alt="User Profile">
                 </a>
             </div>
         </li>
         @for (item of menuItems; track $index)
         {
-        <li class="pt-1">
+        <li class="pt-1 transition-transform ease-in-out hover:transition-all hover:duration-200 
+            hover:scale-105 hover:text-primary">
             <div [class]="tooltipClasses()" [attr.data-tip]="layout.collapsed() ? item.label : null">
-                <a [routerLink]="item.route" routerLinkActive="active" class="flex items-center gap-3 w-full">
+                <a [routerLink]="item.route" routerLinkActive="isActive" 
+                    [routerLinkActiveOptions]="{ exact: false }" class="flex items-center gap-3 w-full ">
                     <span class="text-lg">
                         <i [class]="item.icon"></i>
                     </span>

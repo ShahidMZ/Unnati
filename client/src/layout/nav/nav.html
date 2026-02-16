@@ -14,7 +14,7 @@
             </div>
             }
             <div class="flex flex-row cursor-pointer">
-                <a class="flex flex-row gap-3" [routerLink]="accountService.currentUser() ? '/home' : '/'">
+                <a class="flex flex-row gap-3" [routerLink]="accountService.currentUser() ? '/home/dashboard' : '/'">
                     <!-- <img class="max-w-14 border-r-white border-r-2 pr-4" src="/img/new_logo.jpg" alt=""> -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-10">
                         <path fill-rule="evenodd"
@@ -32,10 +32,24 @@
         @if (userLoggedIn())
         {
         <div class="flex gap-3">
-            <i class="fa-solid fa-bell fa-xl mt-5"></i>
+            <div class="my-auto">
+                <i class="fa-solid fa-envelope fa-lg cursor-pointer opacity-70 
+                    transition-transform ease-in-out hover:transition-all hover:duration-200 
+                    hover:scale-105 hover:text-primary hover:opacity-100"></i>
+            </div>
+            <div class="my-auto">
+                <i class="fa-solid fa-bell fa-lg cursor-pointer opacity-70 
+                    transition-transform ease-in-out hover:transition-all hover:duration-200 
+                    hover:scale-105 hover:text-primary hover:opacity-100"></i>
+            </div>
+            <div class="my-auto">
+                <i class="fa-solid fa-cog fa-lg cursor-pointer opacity-70 
+                    transition-transform ease-in-out hover:transition-all hover:duration-200 
+                    hover:scale-105 hover:text-primary hover:opacity-100" routerLink="/home/settings"></i>
+            </div>
             <label class="toggle text-base-content mt-2.5">
                 <!-- <input type="checkbox" [value]="accountService.lightTheme()" class="theme-controller" /> -->
-                <input type="checkbox" [checked]="accountService.theme() !== 'dark'" (change)="accountService.toggleTheme()" class="theme-controller" />
+                <input type="checkbox" [checked]="accountService.theme() !== accountService.darkTheme()" (change)="accountService.toggleTheme()" class="theme-controller" />
                 <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none"
                         stroke="currentColor">
@@ -57,12 +71,15 @@
                     </g>
                 </svg>
             </label>
+            <div class="divider divider-horizontal m-0"></div>
             <div class="dropdown dropdown-end pt-1.5">
                 <div tabindex="0" role="button" class="flex items-center cursor-pointer">
-                    <img class="w-8 h-8 rounded-full" src="/img/pic1.jpg" alt="User Profile">
+                    <img class="w-8 h-8 rounded-full transition-transform hover:scale-105" 
+                        src="/img/pic1.jpg" alt="User Profile">
                 </div>
                 <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li><a>Edit Profile</a></li>
+                    <li><a>Profile</a></li>
+                    <li><a>Change Password</a></li>
                     <li><a (click)="logout()">Logout</a></li>
                 </ul>
             </div>

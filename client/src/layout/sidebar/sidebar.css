@@ -11,3 +11,9 @@
     background-image: url("/img/bg5.png");
     background-size: cover;
 }
+
+.isActive {
+    /* background-color: var(--color-primary); */
+    color: var(--color-primary);
+    font-weight: bold;
+}

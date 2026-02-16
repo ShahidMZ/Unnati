@@ -9,6 +9,8 @@ import { NotFound } from '../shared/errors/not-found/not-found';
 import { ServerError } from '../shared/errors/server-error/server-error';
 import { Dashboard } from '../features/dashboard/dashboard';
 import { Profile } from '../features/profile/profile';
+import { AddressBook } from '../features/address-book/address-book';
+import { Settings } from '../features/settings/settings';
 
 export const routes: Routes = [
     { path: '', component: Login },
@@ -28,6 +30,8 @@ export const routes: Routes = [
                 children: [
                     { path: 'dashboard', component: Dashboard },
                     { path: 'profile', component: Profile },
+                    { path: 'address-book', component: AddressBook },
+                    { path: 'settings', component: Settings },
                     { path: '', redirectTo: 'home', pathMatch: 'full' }
                 ]
             },

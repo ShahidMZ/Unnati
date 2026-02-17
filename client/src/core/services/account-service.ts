@@ -40,7 +40,7 @@ export class AccountService {
                 if (user) {
                     this.currentUser.set(user);
                     localStorage.setItem('currentUser', JSON.stringify(user));
-
+                    
                     console.log('User logged in:', user);
                 }
             })

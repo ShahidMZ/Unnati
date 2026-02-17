@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PageHeader } from "../../components/page-header/page-header";
+import { AccountService } from '../../core/services/account-service';
 
 @Component({
   selector: 'app-profile',
@@ -8,5 +9,5 @@ import { PageHeader } from "../../components/page-header/page-header";
   styleUrl: './profile.css',
 })
 export class Profile {
-
+    protected accountService = inject(AccountService);
 }

@@ -7,4 +7,5 @@ export interface User {
     lastLogin: Date;
     token: string;
     imageUrl?: string;
+    coverPhoto?: string;
 }

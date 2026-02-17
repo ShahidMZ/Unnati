@@ -8,7 +8,7 @@
         <h3 class="text-sm mt-2">Welcome, <span class="font-bold">{{ accountService.currentUser()?.displayName }}</span></h3>
         <p class="text-xs font-bold mt-1">{{ accountService.currentUser()?.email }}</p>
     </a>
-    <ul class="w-full menu px-2 pt-0 text-base-content text-sm">
+    <!-- <ul class="w-full menu px-2 pt-0 text-base-content text-sm">
         <li routerLink="/home/profile" routerLinkActive="isActive"
             [routerLinkActiveOptions]="{ exact: false }" [class]="layout.collapsed() ? 'mt-1' : 'hidden'" 
             class="mt-3 hover:transition-all hover:duration-300">
@@ -35,6 +35,20 @@
                 </a>
             </div>
         </li>
+        }
+    </ul> -->
+    <ul class="menu px-2 pt-0 text-base-content text-sm w-full">
+        <li routerLink="/home/profile" routerLinkActive="isActive"
+            [routerLinkActiveOptions]="{ exact: false }" [class]="layout.collapsed() ? 'mt-1' : 'hidden'" 
+            class="mt-3 hover:transition-all hover:duration-300">
+            <div [class]="tooltipClasses()" data-tip="profile">
+                <a class="flex items-center gap-3 w-full py-0.5">
+                    <img class="w-5 h-5 rounded-full" src="/img/pic1.jpg" alt="User Profile">
+                </a>
+            </div>
+        </li>
+        @for (item of menuItems; track $index) {
+        <app-sidebar-item [item]="item" [collapsed]="layout.collapsed()"></app-sidebar-item>
         }
     </ul>
     <div class="divider my-3 px-4"></div>

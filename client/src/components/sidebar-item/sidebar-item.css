@@ -1,0 +1,11 @@
+.isActive {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+}
+
+.isChildActive {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+}

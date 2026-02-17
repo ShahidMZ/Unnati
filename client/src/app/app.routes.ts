@@ -11,6 +11,9 @@ import { Dashboard } from '../features/dashboard/dashboard';
 import { Profile } from '../features/profile/profile';
 import { AddressBook } from '../features/address-book/address-book';
 import { Settings } from '../features/settings/settings';
+import { ApplyLeave } from '../features/ess/apply-leave/apply-leave';
+import { Holidays } from '../features/ess/holidays/holidays';
+import { MyApprovals } from '../features/ess/my-approvals/my-approvals';
 
 export const routes: Routes = [
     { path: '', component: Login },
@@ -32,6 +35,12 @@ export const routes: Routes = [
                     { path: 'profile', component: Profile },
                     { path: 'address-book', component: AddressBook },
                     { path: 'settings', component: Settings },
+                    { path: 'ess', children: [
+                        { path: 'apply-leave', component: ApplyLeave },
+                        { path: 'holidays', component: Holidays },
+                        { path: 'my-approvals', component: MyApprovals },
+                    ] },
+
                     { path: '', redirectTo: 'home', pathMatch: 'full' }
                 ]
             },

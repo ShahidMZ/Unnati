@@ -9,3 +9,35 @@
     color: white;
     font-weight: bold;
 }
+
+.enter-animation {
+    animation: slide-fade-in 0.5s ease-in-out;
+}
+
+@keyframes slide-fade-in {
+    from {
+        opacity: 0;
+        /* transform: translateX(20px); */
+        max-height: 0px;
+    } to {
+        opacity: 1;
+        /* transform: translateX(0); */
+        max-height: 1000px;
+    }
+}
+
+.leave-animation {
+    animation: slide-fade-out 0.5s;
+}
+
+@keyframes slide-fade-out {
+    from {
+        opacity: 1;
+        /* transform: translateX(0); */
+        max-height: 1000px;
+    } to {
+        opacity: 0;
+        /* transform: translateX(20px); */
+        max-height: 0px;
+    }
+}

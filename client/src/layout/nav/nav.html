@@ -33,7 +33,7 @@
         {
         <div class="flex gap-3">
             <div class="my-auto">
-                <i class="fa-solid fa-envelope fa-lg cursor-pointer opacity-70 
+                <i class="fa-solid fa-message fa-lg cursor-pointer opacity-70 
                     transition-transform ease-in-out hover:transition-all hover:duration-200 
                     hover:scale-105 hover:text-primary hover:opacity-100"></i>
             </div>
@@ -79,7 +79,7 @@
                         src="/img/pic1.jpg" alt="User Profile">
                 </div>
                 <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                    <li><a>Profile</a></li>
+                    <li><a routerLink="/home/profile">Profile</a></li>
                     <li><a>Change Password</a></li>
                     <li><a (click)="logout()">Logout</a></li>
                 </ul>

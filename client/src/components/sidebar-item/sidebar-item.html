@@ -46,12 +46,15 @@
         </div>
         @if (item.children && !collapsed) {
         <div class="justify-items-end">
-            <i class="text-base-content fa-solid" [class.fa-chevron-down]="expanded" [class.fa-chevron-right]="!expanded"></i>
+            <i class="fa-solid fa-chevron-up text-base-content" 
+                [class.fa-chevron-up]="expanded" 
+                [class.fa-chevron-down]="!expanded">
+            </i>
         </div>
         }
     </div>
     @if (item.children && expanded && !collapsed) {
-    <ul class="ml-4 space-y-1 transition-all duration-200 ease-in-out">
+    <ul class="ml-4 space-y-1" animate.enter="enter-animation" animate.leave="leave-animation">
         @for (child of item.children; track $index) {
         <app-sidebar-item [item]="child" [collapsed]="collapsed" [level]="level + 1"></app-sidebar-item>
         }

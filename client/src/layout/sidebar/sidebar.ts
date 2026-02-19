@@ -221,6 +221,7 @@ export class Sidebar {
                             index: 2,
                             label: 'Booking History',
                             icon: 'fa-solid fa-clock-rotate-left fa-sm',
+                            route: '/home/bookings/meeting-room-booking/booking-history'
                         } as SidebarItem,
                         {
                             index: 3,

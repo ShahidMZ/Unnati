@@ -33,14 +33,16 @@ export class SidebarItemComponent {
         }
 
         if (this.item.children) {
-            let isRouteActive = this.item.children.some(child =>
-                isActive(child.route ?? '', this.router, {
-                    paths: 'subset',
-                    queryParams: 'ignored',
-                    fragment: 'ignored',
-                    matrixParams: 'ignored'
-                })()
-            );
+            let isRouteActive = this.item.children.some(child => {
+                if (child.route) {
+                    isActive(child.route, this.router, {
+                        paths: 'subset',
+                        queryParams: 'ignored',
+                        fragment: 'ignored',
+                        matrixParams: 'ignored'
+                    })()
+                }
+            });
 
             if (isRouteActive == true) {
                 return this.matchList[2];

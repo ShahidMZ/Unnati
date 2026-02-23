@@ -1,7 +1,51 @@
 <div class="flex flex-col gap-3 my-5 mx-10">
     <app-page-header [header]="'Home'"></app-page-header>
-    <div class="flex flex-col gap-3 w-full rounded-md shadow-xl bg-base-100">
-        <div class="card w-10 h-10 rounded-md bg-primary m-3">
+    <div class="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 
+        sm:grid-cols-1 gap-0 h-100 rounded-md bg-base-200 overflow-hidden">
+        <div class="flex flex-col gap-1 py-3 px-4 m-3 rounded-md shadow-xl bg-base-100 overflow-auto">
+            <div class="flex flex-row justify-between gap-2">
+                <div class="flex flex-row gap-2">
+                    <i class="fa-solid fa-thumbtack pt-1"></i>
+                    <h4 class="">Pinned Pages</h4>
+                </div>
+                <div class="flex flex-row gap-1">
+                    <button class="btn btn-xs rounded-full hover:transition-all hover:duration-200 hover:bg-primary hover:text-white">
+                        <i class="fa-solid fa-arrows-rotate fa-xs"></i>
+                    </button>
+                    <button class="btn btn-xs rounded-full hover:transition-all hover:duration-200 hover:bg-success hover:text-white">
+                        <i class="fa-solid fa-angle-up fa-xs"></i>
+                    </button>
+                    <button class="btn btn-xs rounded-full hover:transition-all hover:duration-200 hover:bg-error hover:text-white">
+                        <i class="fa-solid fa-xmark fa-xs"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="divider m-0"></div>
+            <div class="overflow-auto">
+                <p class="text-sm py-1 text-base-content">Page 1</p>
+                <p class="text-sm py-1 text-base-content">Page 2</p>
+                <p class="text-sm py-1 text-base-content">Page 3</p>
+                <p class="text-sm py-1 text-base-content">Page 4</p>
+                <p class="text-sm py-1 text-base-content">Page 5</p>
+                <p class="text-sm py-1 text-base-content">Page 6</p>
+                <p class="text-sm py-1 text-base-content">Page 7</p>
+                <p class="text-sm py-1 text-base-content">Page 8</p>
+                <p class="text-sm py-1 text-base-content">Page 9</p>
+                <p class="text-sm py-1 text-base-content">Page 10</p>
+                <p class="text-sm py-1 text-base-content">Page 11</p>
+                <p class="text-sm py-1 text-base-content">Page 12</p>
+                <p class="text-sm py-1 text-base-content">Page 13</p>
+                <p class="text-sm py-1 text-base-content">Page 14</p>
+                <p class="text-sm py-1 text-base-content">Page 15</p>
+            </div>
+        </div>
+        <div class="flex flex-col gap-1 py-3 px-4 m-3 rounded-md shadow-xl bg-base-100 overflow-auto">
+
+        </div>
+        <div class="flex flex-col gap-1 py-3 px-4 m-3 rounded-md shadow-xl bg-base-100 overflow-auto">
+
+        </div>
+        <div class="flex flex-col gap-1 py-3 px-4 m-3 rounded-md shadow-xl bg-base-100 overflow-auto">
 
         </div>
     </div>

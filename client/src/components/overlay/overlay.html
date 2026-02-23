@@ -1,0 +1,16 @@
+<div class="w-fit bg-base-200 shadow-2xl rounded-xl px-1" (mouseenter)="$event.stopPropagation()">
+    <ul class="menu px-2 pt-1 pb-2 min-w-3xs">
+        @if (items.length === 0) {
+            <!-- <p>{{ label }}</p> -->
+            <app-sidebar-item [item]="item" [collapsed]="false"></app-sidebar-item>
+        } @else {
+            <div class="flex flex-col gap-0">
+                @for (item of items; track $index) {
+                    <app-sidebar-item [item]="item" [collapsed]="false"></app-sidebar-item>
+                    <!-- <p>{{ item.label }}</p> -->
+                     <!-- <app-sidebar-flyout [item]="item" [collapsed]="false"></app-sidebar-flyout> -->
+                }
+            </div>
+        }
+    </ul>
+</div>

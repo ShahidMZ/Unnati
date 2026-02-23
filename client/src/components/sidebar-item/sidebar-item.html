@@ -1,41 +1,8 @@
-<!-- <li class="relative">
-    <div class="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-all"
-        [class.bg-primary]="isActive()" [class.text-primary-content]="isActive()" (click)="toggle()"
-        (mouseenter)="collapsed && (expanded = true)" (mouseleave)="collapsed && (expanded = false)">
-        @if (item.icon) {
-        <i [class]="item.icon"></i>
-        }
-        @if (!collapsed) {
-        <span>{{ item.label }}</span>
-        }
-        @if (item.children && !collapsed) {
-        <i class="pi" [class.pi-chevron-down]="expanded" [class.pi-chevron-right]="!expanded"></i>
-        }
-    </div>
-    @if (item.children && expanded && !collapsed) {
-    <ul class="ml-4 mt-1 space-y-1">
-        @for (child of item.children; track $index) {
-        <app-sidebar-item [item]="child" [collapsed]="collapsed" [level]="level + 1"></app-sidebar-item>
-        }
-    </ul>
-    }
-    @if (item.children && expanded && collapsed) {
-    <div class="absolute left-full top-0 ml-2 w-52 bg-base-200 shadow-xl rounded-lg">
-        <ul class="menu p-2">
-            @for (child of item.children; track $index) {
-            <app-sidebar-item [item]="child" [collapsed]="false" [level]="level + 1"></app-sidebar-item>
-            }
-        </ul>
-    </div>
-    }
-</li> -->
-
-<li class="relative mt-1">
+<li class="relative mt-1" (mouseenter)="sendElementRef()">
     <div class="flex justify-between gap-3 rounded-md cursor-pointer transition-transform 
         ease-in-out hover:transition-all hover:duration-200 hover:text-primary hover:scale-105"
         [class.isActive]="isActive() == matchList[1]" [class.isChildActive]="isActive() == matchList[2]"
-        (click)="toggleOrNavigate()" (mouseenter)="collapsed && (expanded = true)"
-        (mouseleave)="collapsed && (expanded = false)">
+        (click)="toggleOrNavigate()">
         <div class="flex gap-3">
             @if (item.icon) {
             <span class="text-lg"><i [class]="item.icon"></i></span>
@@ -59,14 +26,5 @@
         <app-sidebar-item [item]="child" [collapsed]="collapsed" [level]="level + 1"></app-sidebar-item>
         }
     </ul>
-    }
-    @if (item.children && expanded && collapsed) {
-    <div class="absolute left-full top-0 ml-2 w-52 bg-base-200 shadow-xl rounded-lg">
-        <ul class="menu p-2">
-            @for (child of item.children; track $index) {
-            <app-sidebar-item [item]="child" [collapsed]="false" [level]="level + 1"></app-sidebar-item>
-            }
-        </ul>
-    </div>
     }
 </li>

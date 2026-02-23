@@ -1,42 +1,16 @@
-<aside class="bg-base-200 h-full transition-all duration-300 scrollable-div py-16" [class]="widthClass()">
+<aside class="bg-base-200 h-full transition-all duration-300 scrollable-div py-16" 
+    [class]="widthClass()">
     <a id="userCard" class="card h-30 bg-base-300 m-3 p-3 cursor-pointer opacity-70 hover:opacity-100 
-        hover:transition-all hover:duration-300 hover:text-primary hover:scale-102" [class]="layout.collapsed() ? 'hidden' : null"
-        routerLink="/home/profile" routerLinkActive="isActive" [routerLinkActiveOptions]="{ exact: false }">
+        hover:transition-all hover:duration-300 hover:text-primary hover:scale-102" 
+        [class]="layout.collapsed() ? 'hidden' : null"
+        routerLink="/home/profile" routerLinkActive="isActive" 
+        [routerLinkActiveOptions]="{ exact: false }">
         <div tabindex="0" role="button" class="flex items-center mt-1">
             <img class="w-8 h-8 rounded-full" src="/img/pic1.jpg" alt="User Profile">
         </div>
         <h3 class="text-sm mt-2">Welcome, <span class="font-bold">{{ accountService.currentUser()?.displayName }}</span></h3>
         <p class="text-xs font-bold mt-1">{{ accountService.currentUser()?.email }}</p>
     </a>
-    <!-- <ul class="w-full menu px-2 pt-0 text-base-content text-sm">
-        <li routerLink="/home/profile" routerLinkActive="isActive"
-            [routerLinkActiveOptions]="{ exact: false }" [class]="layout.collapsed() ? 'mt-1' : 'hidden'" 
-            class="mt-3 hover:transition-all hover:duration-300">
-            <div [class]="tooltipClasses()" data-tip="profile">
-                <a class="flex items-center gap-3 w-full py-0.5">
-                    <img class="w-5 h-5 rounded-full" src="/img/pic1.jpg" alt="User Profile">
-                </a>
-            </div>
-        </li>
-        @for (item of menuItems; track $index)
-        {
-        <li class="mt-1 transition-transform ease-in-out hover:transition-all hover:duration-200 
-            hover:scale-105 hover:text-primary" [routerLink]="item.route" routerLinkActive="isActive" 
-            [routerLinkActiveOptions]="{ exact: false }">
-            <div [class]="tooltipClasses()" [attr.data-tip]="layout.collapsed() ? item.label : null">
-                <a class="flex items-center gap-3 w-full ">
-                    <span class="text-lg">
-                        <i [class]="item.icon"></i>
-                    </span>
-                    @if (!layout.collapsed())
-                    {
-                    <span>{{ item.label }}</span>
-                    }
-                </a>
-            </div>
-        </li>
-        }
-    </ul> -->
     <ul class="menu px-2 pt-0 text-base-content text-sm w-full">
         <li routerLink="/home/profile" routerLinkActive="isActive"
             [routerLinkActiveOptions]="{ exact: false }" [class]="layout.collapsed() ? 'mt-1' : 'hidden'" 
@@ -48,7 +22,9 @@
             </div>
         </li>
         @for (item of menuItems; track $index) {
-        <app-sidebar-item [item]="item" [collapsed]="layout.collapsed()"></app-sidebar-item>
+        <app-sidebar-item [item]="item" [collapsed]="layout.collapsed()" 
+            (dataEvent)="showOverlay(item, $event)">
+        </app-sidebar-item>
         }
     </ul>
     <div class="divider my-3 px-4"></div>

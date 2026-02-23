@@ -1,6 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.css";
+
 @plugin "daisyui" {
     themes: all;
+}
+
+.sidebar-flyout-panel {
+    pointer-events: auto;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.cdk-overlay-container {
+    z-index: 1000;
 }

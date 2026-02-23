@@ -1,4 +1,5 @@
 export interface SidebarItem {
+    id: number;
     sectionNumber: number;
     index: number;
     section: string;

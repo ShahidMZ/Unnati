@@ -2,6 +2,7 @@ import { Component, ElementRef, EventEmitter, inject, Input, Output } from '@ang
 import { isActive, Router, RouterModule } from '@angular/router';
 import { SidebarItem } from '../../core/models/layout/sidebar-item';
 import { CommonModule } from '@angular/common';
+import { LayoutService } from '../../core/services/layout-service';
 
 @Component({
   selector: 'app-sidebar-item',
@@ -15,6 +16,8 @@ export class SidebarItemComponent {
     @Input() collapsed = false;
     @Input() level = 0;
     @Output() dataEvent = new EventEmitter<ElementRef>();
+
+    protected layoutService = inject(LayoutService);
 
     private router = inject(Router);
     private elementRef = inject(ElementRef);
@@ -56,10 +59,23 @@ export class SidebarItemComponent {
         return this.matchList[0];
     }
 
+    toggleExpand(event: MouseEvent) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.layoutService.toggleMenu(this.level, this.item.id.toString());
+    }
+
+    isExpanded() {
+        return this.layoutService.isExpanded(this.level, this.item.id.toString());
+    }
+
     toggleOrNavigate() {
         if (this.item.children) {
-            this.expanded = !this.expanded;
+            // this.expanded = !this.expanded;
+            this.toggleExpand(new MouseEvent('click'));
         } else {
+            this.toggleExpand(new MouseEvent('click'));
             this.router.navigate([this.item.route]);
         }
     }

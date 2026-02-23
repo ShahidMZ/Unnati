@@ -27,7 +27,7 @@
 }
 
 .leave-animation {
-    animation: slide-fade-out 0.5s;
+    animation: slide-fade-out 0.2s;
 }
 
 @keyframes slide-fade-out {

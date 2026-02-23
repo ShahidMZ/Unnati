@@ -4,7 +4,7 @@
             @if (userLoggedIn())
             {
             <div class="flex-none">
-                <button id="toggle" class="btn btn-square btn-ghost" (click)="layout.toggleCollapse()">
+                <button id="toggle" class="btn btn-square btn-ghost" (click)="layout.toggleSidebarCollapse()">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         class="inline-block h-5 w-5 stroke-current">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -45,7 +45,9 @@
             <div class="my-auto">
                 <i class="fa-solid fa-cog fa-lg cursor-pointer opacity-70 
                     transition-transform ease-in-out hover:transition-all hover:duration-200 
-                    hover:scale-105 hover:text-primary hover:opacity-100" routerLink="/home/settings"></i>
+                    hover:scale-105 hover:text-primary hover:opacity-100" 
+                    routerLink="/home/settings" routerLinkActive="isActive"
+                    [routerLinkActiveOptions]="{ exact: false }"></i>
             </div>
             <label class="toggle text-base-content mt-2.5">
                 <!-- <input type="checkbox" [value]="accountService.lightTheme()" class="theme-controller" /> -->

@@ -1,3 +1,56 @@
 <div class="flex flex-col gap-3 my-5 mx-10">
     <app-page-header [header]="'Settings'"></app-page-header>
+    <div id="dashboardArea" class="flex flex-row py-3 min-h-100 rounded-md bg-base-200 overflow-hidden">
+        <div class="h-full w-50 px-3 overflow-y-auto">
+            @for (setting of settings; track $index) {
+            <h3 class="mx-2 mb-2 cursor-pointer hover:transition-all hover:duration-200 
+                    hover:text-primary hover:scale-102" (click)="changeSetting(setting)"
+                [class.text-primary]="selectedSetting() == setting" [class.font-bold]="selectedSetting() == setting">
+                {{ setting }}
+            </h3>
+            }
+        </div>
+        <div class="divider divider-horizontal m-0"></div>
+        <div class="py-1 px-4 w-full text-sm">
+            @if (selectedSetting() == settings[0]) {
+            <div class="flex flex-col gap-3">
+                <h4 class="">Show/hide homepage sections:</h4>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Notifications
+                </label>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Messages
+                </label>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Pinned Pages
+                </label>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Links
+                </label>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Links
+                </label>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Links
+                </label>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Links
+                </label>
+                <label class="label text-base-content">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-primary mr-1" />
+                    Links
+                </label>
+            </div>
+            } @else if (selectedSetting() == settings[1]) {
+
+            }
+        </div>
+    </div>
 </div>
